@@ -1,73 +1,81 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const standards = [
-    [
-      "Brotherhood",
-      "We put the team first, support each other, and build trust on and off the field.",
-    ],
-    [
-      "Commitment",
-      "We show up prepared, work hard, and give consistent effort even when it is difficult.",
-    ],
-    [
-      "Communication",
-      "We talk, encourage, organize, and bring positive energy to every training session and match.",
-    ],
-    [
-      "Competitive Spirit",
-      "We compete with confidence, resilience, and purpose while respecting the game.",
-    ],
-    [
-      "Soccer Intelligence",
-      "We learn to read the game, make smart decisions, and solve problems together.",
-    ],
-    [
-      "Character",
-      "We use soccer to build discipline, accountability, humility, and resilience.",
-    ],
+    ["Competitive Spirit", "We embrace challenges and compete with confidence, resilience, and purpose."],
+    ["Commitment", "We show up prepared, work hard, and give consistent effort for the team."],
+    ["Communication", "We talk, encourage, organize, and bring positive energy to every match."],
+    ["Brotherhood", "We put the team first, support each other, and build trust on and off the field."],
+    ["Soccer Intelligence", "We learn to read the game, make smart decisions, and solve problems together."],
+    ["Love of the Game", "We train hard, compete hard, and never lose the joy of playing soccer."],
   ];
 
-  const galleryItems = [
-    "Team Photo",
-    "Game Highlights",
-    "Tournament Weekend",
-    "Training Session",
-    "Team Events",
-    "Season Moments",
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Standard", href: "#standard" },
+    { label: "Coaches", href: "#coach" },
+    { label: "Gallery", href: "#gallery" },
+    { label: "YouTube", href: "https://www.youtube.com/channel/UCl_79NNg9ze7DN4FSiEeocQ", external: true },
+    { label: "Contact", href: "#contact" },
   ];
 
   return (
     <main className="min-h-screen bg-[#F7F3EA] text-[#0B2F4A]">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-8 md:px-12 py-5 border-b border-[#0B2F4A]/10">
+      <nav className="relative flex items-center justify-between px-8 md:px-12 py-5 border-b border-[#0B2F4A]/10">
         <div className="flex items-center gap-4">
-          <Image
-            src="/images/logo.PNG"
-            alt="Man City FC Logo"
-            width={64}
-            height={64}
-          />
-
+          <Image src="/images/logo.PNG" alt="Man City FC Logo" width={64} height={64} />
           <div>
             <div className="text-2xl font-bold">Man City FC</div>
-            <div className="text-sm text-slate-500">
-              Utah Youth Soccer
-            </div>
+            <div className="text-sm text-slate-500">Utah Youth Soccer</div>
           </div>
         </div>
 
+        {/* Desktop nav */}
         <div className="hidden md:flex gap-8 font-medium">
-          <a href="#about">About</a>
-          <a href="#standard">Standard</a>
-          <a href="#philosophy">Philosophy</a>
-          <a href="#coach">Coach</a>
-          <a href="#gallery">Gallery</a>
-          <a href="#contact">Contact</a>
+          {navLinks.map(({ label, href, external }) => (
+            <a
+              key={label}
+              href={href}
+              {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+            >
+              {label}
+            </a>
+          ))}
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label="Toggle menu"
+        >
+          <span className={`block w-6 h-0.5 bg-[#0B2F4A] transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0B2F4A] transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-[#0B2F4A] transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+        </button>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="absolute top-full left-0 right-0 bg-[#F7F3EA] border-b border-[#0B2F4A]/10 flex flex-col py-4 px-8 gap-5 font-medium z-50 md:hidden">
+            {navLinks.map(({ label, href, external }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        )}
       </nav>
 
-      {/* Hero */}
       <section className="max-w-6xl mx-auto px-8 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <p className="uppercase tracking-[0.3em] text-[#D8B44A] font-semibold mb-6">
@@ -75,69 +83,50 @@ export default function Home() {
           </p>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
-            Better Players.
-            <br />
-            Better Teammates.
-            <br />
-            Better Young Men.
+            Better Every Day.
           </h1>
 
-          <p className="text-xl text-slate-600 mb-10">
-            Man City FC develops skilled, confident, and resilient players
-            through purposeful training, competitive soccer, and a
-            team-first culture.
+          <p className="text-xl text-slate-600 mb-10 leading-8">
+            We believe soccer is more than a game. Through purposeful training,
+            competitive soccer, and a team-first culture, we develop players,
+            build character, and create brotherhood.
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <a
-              href="#about"
-              className="bg-[#0B2F4A] text-white px-6 py-3 rounded-lg font-medium"
-            >
+            <a href="#about" className="bg-[#0B2F4A] text-white px-6 py-3 rounded-lg font-medium">
               Learn More
             </a>
-
-            <a
-              href="#contact"
-              className="border border-[#0B2F4A] px-6 py-3 rounded-lg font-medium"
-            >
+            <a href="#contact" className="border border-[#0B2F4A] px-6 py-3 rounded-lg font-medium">
               Contact Us
             </a>
           </div>
         </div>
 
         <div className="flex justify-center">
-          <Image
-            src="/images/logo.PNG"
-            alt="Man City FC Crest"
-            width={360}
-            height={360}
-          />
+          <Image src="/images/logo.PNG" alt="Man City FC Crest" width={360} height={360} />
         </div>
       </section>
 
-      {/* About */}
       <section id="about" className="bg-white py-24">
         <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-12">
           <div>
             <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
               About
             </p>
-
             <h2 className="text-4xl font-bold mb-6">
-              A team built on development, effort, and brotherhood.
+              Building players for the game—and for life.
             </h2>
           </div>
 
           <p className="text-lg text-slate-600 leading-8">
-            Man City FC is a youth soccer team focused on helping players
-            grow as athletes, teammates, and young men. We believe players
-            develop best in an environment that is challenging, positive,
-            organized, and rooted in trust.
+            Man City FC provides a positive, competitive environment where
+            players are challenged to improve every day. We focus on developing
+            skill, confidence, leadership, and character while fostering a
+            culture built on trust, accountability, and teamwork.
           </p>
         </div>
       </section>
 
-      {/* Standards */}
       <section id="standard" className="py-24">
         <div className="max-w-6xl mx-auto px-8">
           <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
@@ -149,16 +138,13 @@ export default function Home() {
           </h2>
 
           <p className="text-lg text-slate-600 max-w-3xl mb-12">
-            Our culture is built on effort, communication, courage,
-            soccer intelligence, character, and a genuine love for the game.
+            Our culture is built on effort, communication, courage, soccer
+            intelligence, brotherhood, and a genuine love for the game.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
             {standards.map(([title, text]) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-[#0B2F4A]/10 bg-white p-8"
-              >
+              <div key={title} className="rounded-2xl border border-[#0B2F4A]/10 bg-white p-8">
                 <h3 className="text-xl font-bold mb-3">{title}</h3>
                 <p className="text-slate-600 leading-7">{text}</p>
               </div>
@@ -167,56 +153,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Philosophy */}
-      <section id="philosophy" className="bg-white py-24">
-        <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-12">
-          <div>
-            <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
-              Philosophy
-            </p>
-
-            <h2 className="text-4xl font-bold mb-6">
-              The process matters.
-            </h2>
-          </div>
-
-          <p className="text-lg text-slate-600 leading-8">
-            Winning matters, but development comes first. We focus on the
-            daily habits that help players improve: effort, discipline,
-            communication, decision-making, and trust. Soccer is the
-            classroom, but the goal is bigger than the scoreboard.
-          </p>
-        </div>
-      </section>
-
-      {/* Coach */}
-      <section
-        id="coach"
-        className="bg-[#0B2F4A] text-white py-24"
-      >
-        <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-12">
-          <div>
+      <section id="coach" className="py-24">
+        <div className="max-w-6xl mx-auto px-8">
+          <div className="max-w-3xl mb-14">
             <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
               Coaching
             </p>
 
-            <h2 className="text-4xl font-bold mb-6">
-              Led with purpose.
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              The game matters. The player matters more.
             </h2>
+
+            <p className="text-lg text-slate-600 leading-8">
+              Meet the coaches helping players grow through competition,
+              character, and a love for the game.
+            </p>
           </div>
 
-          <p className="text-lg text-slate-200 leading-8">
-            Coach Sam and Coach Mark focus on developing players who
-            compete with intensity, think for themselves, communicate
-            constantly, and support each other like brothers. The goal is
-            to help every player improve while building confidence,
-            resilience, character, and a team culture players are proud to
-            be part of.
-          </p>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-8 border border-[#0B2F4A]/10 shadow-sm">
+              <Image
+                src="/images/Sam.jpg"
+                alt="Coach Sam"
+                width={700}
+                height={800}
+                className="rounded-xl mb-8 w-full h-[420px] object-cover object-top"
+              />
+
+              <h3 className="text-3xl font-bold mb-5">Coach Sam</h3>
+
+              <blockquote className="text-2xl italic leading-9 mb-6 text-[#0B2F4A]">
+                "My goal is simple: help every player love soccer more than
+                they did when they arrived. When players love the game, they'll
+                keep learning, keep competing, and keep growing."
+              </blockquote>
+
+              <p className="text-slate-600 leading-8">
+                Sam believes the best development happens when players genuinely
+                enjoy the game. Through challenging training, positive
+                relationships, and competitive soccer, he works to build
+                confident players who love showing up, working hard, and getting
+                better every day.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 border border-[#0B2F4A]/10 shadow-sm">
+              <Image
+                src="/images/Mark.jpeg"
+                alt="Coach Mark"
+                width={700}
+                height={800}
+                className="rounded-xl mb-8 w-full h-[420px] object-cover object-top"
+              />
+
+              <h3 className="text-3xl font-bold mb-5">Coach Mark</h3>
+
+              <blockquote className="text-2xl italic leading-9 mb-6 text-[#0B2F4A]">
+                "The lessons players learn through soccer often last longer
+                than the results of any game. Every challenge is an opportunity
+                to build character, strengthen resilience, and become a better
+                teammate."
+              </blockquote>
+
+              <p className="text-slate-600 leading-8">
+                Mark believes soccer is one of life's greatest teachers.
+                Through accountability, perseverance, teamwork, and consistent
+                effort, he helps players develop skills and character that
+                extend far beyond the field.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Parents */}
       <section className="bg-white py-24">
         <div className="max-w-6xl mx-auto px-8">
           <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
@@ -229,83 +238,88 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-bold text-xl mb-3">
-                Clear Communication
-              </h3>
+              <h3 className="font-bold text-xl mb-3">Clear Communication</h3>
               <p className="text-slate-600">
-                Important updates, schedules, and expectations shared
-                clearly.
+                Important updates, schedules, and expectations shared clearly.
               </p>
             </div>
 
             <div>
-              <h3 className="font-bold text-xl mb-3">
-                Positive Challenge
-              </h3>
+              <h3 className="font-bold text-xl mb-3">Positive Challenge</h3>
               <p className="text-slate-600">
                 Players are pushed to grow while being supported as people.
               </p>
             </div>
 
             <div>
-              <h3 className="font-bold text-xl mb-3">
-                Team-First Culture
-              </h3>
+              <h3 className="font-bold text-xl mb-3">Team-First Culture</h3>
               <p className="text-slate-600">
-                Players are expected to compete hard, respect the game,
-                and support teammates.
+                Players are expected to compete hard, respect the game, and
+                support teammates.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Gallery */}
       <section id="gallery" className="py-24">
         <div className="max-w-6xl mx-auto px-8">
           <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
             Gallery
           </p>
 
-          <h2 className="text-4xl font-bold mb-10">
-            Team Moments
+          <h2 className="text-4xl font-bold mb-6">
+            Team Photos & Highlights
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {galleryItems.map((item) => (
-              <div
-                key={item}
-                className="aspect-video rounded-2xl bg-white border border-[#0B2F4A]/10 flex items-center justify-center text-slate-500"
-              >
-                {item}
+          <p className="text-lg text-slate-600 mb-10 max-w-3xl">
+            Follow our season through game photos, training moments, and team
+            highlights.
+          </p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+            {[
+              { src: "/images/gallery1.jpeg", alt: "Players battling for the ball" },
+              { src: "/images/gallery2.jpeg", alt: "Scrimmage action" },
+              { src: "/images/gallery3.jpeg", alt: "Player defending" },
+              { src: "/images/gallery4.jpeg", alt: "Player at halftime" },
+              { src: "/images/gallery5.jpeg", alt: "Player resting after practice" },
+            ].map(({ src, alt }) => (
+              <div key={src} className="aspect-[3/4] rounded-2xl overflow-hidden">
+                <Image
+                  src={src}
+                  alt={alt}
+                  width={600}
+                  height={800}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
 
-          <div className="mt-10">
-            <a
-              href="https://www.youtube.com/channel/UCl_79NNg9ze7DN4FSiEeocQ"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-[#D8B44A] text-[#0B2F4A] px-6 py-3 rounded-lg font-semibold"
-            >
-              Watch Videos on YouTube
-            </a>
-          </div>
+          <a
+            href="https://www.youtube.com/channel/UCl_79NNg9ze7DN4FSiEeocQ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#0B2F4A] text-white px-6 py-3 rounded-lg font-medium"
+          >
+            Watch Videos on YouTube
+          </a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer
-        id="contact"
-        className="py-12 px-8 border-t border-[#0B2F4A]/10 text-center"
-      >
+      <footer id="contact" className="py-16 px-8 border-t border-[#0B2F4A]/10 text-center">
         <h2 className="text-2xl font-bold mb-3">Man City FC</h2>
-
-        <p className="text-slate-600">
-          Questions about the team, schedule, or upcoming events?
-          Contact the coaching staff.
+        <p className="text-slate-600 mb-6">
+          Questions about the team, schedule, or upcoming events? Reach out to
+          the coaching staff.
         </p>
+        <a
+          href="mailto:amylsessions@gmail.com"
+          className="inline-block bg-[#0B2F4A] text-white px-6 py-3 rounded-lg font-medium"
+        >
+          Email the Coaches
+        </a>
       </footer>
     </main>
   );
