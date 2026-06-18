@@ -21,12 +21,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hidden md:flex gap-8 font-medium">
-          <a href="#about">About</a>
-          <a href="#standard">Standard</a>
-          <a href="#coach">Coach</a>
-          <a href="#contact">Contact</a>
-        </div>
+     <div className="hidden md:flex gap-8 font-medium">
+  <a href="#about">About</a>
+  <a href="#standard">Standard</a>
+  <a href="#coach">Coach</a>
+  <a href="#gallery">Gallery</a>
+  <a
+    href="https://www.youtube.com/channel/UCl_79NNg9ze7DN4FSiEeocQ"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    YouTube
+  </a>
+  <a href="#contact">Contact</a>
+</div>
       </nav>
 
       <section className="max-w-6xl mx-auto px-8 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
@@ -124,7 +132,59 @@ export default function Home() {
           </div>
         </div>
       </section>
+<section id="gallery" className="py-24">
+  <div className="max-w-6xl mx-auto px-8">
+    <p className="uppercase tracking-[0.25em] text-[#D8B44A] font-semibold mb-4">
+      Gallery
+    </p>
 
+    <h2 className="text-4xl font-bold mb-6">
+      Team Photos & Highlights
+    </h2>
+
+    <p className="text-lg text-slate-600 mb-12 max-w-3xl">
+      Follow our season through game photos, tournament highlights,
+      team events, and training moments.
+    </p>
+
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="aspect-video bg-slate-200 rounded-2xl flex items-center justify-center">
+        Team Photo
+      </div>
+
+      <div className="aspect-video bg-slate-200 rounded-2xl flex items-center justify-center">
+        Game Highlights
+      </div>
+
+      <div className="aspect-video bg-slate-200 rounded-2xl flex items-center justify-center">
+        Tournament Weekend
+      </div>
+
+      <div className="aspect-video bg-slate-200 rounded-2xl flex items-center justify-center">
+        Training Session
+      </div>
+
+      <div className="aspect-video bg-slate-200 rounded-2xl flex items-center justify-center">
+        Team Event
+      </div>
+
+      <div className="aspect-video bg-slate-200 rounded-2xl flex items-center justify-center">
+        Season Highlights
+      </div>
+    </div>
+
+    <div className="mt-10">
+      <a
+        href="https://www.youtube.com/channel/UCl_79NNg9ze7DN4FSiEeocQ"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block bg-[#0B2F4A] text-white px-6 py-3 rounded-lg"
+      >
+        Watch Videos on YouTube
+      </a>
+    </div>
+  </div>
+</section>
       <footer id="contact" className="py-12 px-8 border-t border-[#0B2F4A]/10 text-center">
         <h2 className="text-2xl font-bold mb-3">Man City FC</h2>
         <p className="text-slate-600">Questions about the team, schedule, or upcoming events? Contact the coaching staff.</p>
