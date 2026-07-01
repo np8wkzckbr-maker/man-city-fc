@@ -195,7 +195,7 @@ export default function Home() {
       name: "Coach Sam",
       fullName: "Sam Jaggi",
       role: "Head Coach",
-      bio: "Focused on developing players who think for themselves, communicate constantly, and compete with intensity. Sam brings a tactical, player-first approach to every session.",
+      bio: "Sam believes soccer is 80% mind. He builds disciplined, coachable players who are students of the game—hungry to improve every single day.",
       flipImage: "/images/Sam_flip.png",
     },
     {
@@ -223,11 +223,13 @@ export default function Home() {
 
   const galleryItems = [
     { label: "Team Photo", src: "/images/gallery1.jpeg" },
-    { label: "Game Highlights", src: "/images/gallery2.jpeg" },
+    { label: "Game Highlights", src: "/images/gallery2.jpg" },
     { label: "Tournament Weekend", src: "/images/gallery3.jpeg" },
     { label: "Training Session", src: "/images/gallery4.jpeg" },
     { label: "Team Events", src: "/images/gallery5.jpeg" },
     { label: "Season Moments", src: "/images/gallery6.jpeg" },
+    { label: "Season Moments", src: "/images/gallery7.jpeg" },
+    { label: "Season Moments", src: "/images/gallery8.jpeg" },
   ];
 
   const testimonials = [
@@ -301,7 +303,7 @@ export default function Home() {
               Play together.
             </h1>
             <p className="text-lg text-slate-300 leading-8 mb-10">
-              We believe great soccer comes from players who understand the game, communicate constantly, compete with confidence, and trust their teammates. Every training session is designed to develop skill, soccer IQ, character, and a lifelong love of the game.
+              We believe soccer is 80% mind. Every session is designed to develop players who are disciplined, coachable, and hungry to improve—young men who love the game and carry what they learn here long after the final whistle.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#about" className="bg-[#6CB4E4] text-[#0B2F4A] px-6 py-3 rounded-lg font-semibold hover:bg-[#6CB4E4]/90 transition-colors">
@@ -323,10 +325,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
           <SectionIntro
             eyebrow="About"
-            heading="A team built on development, effort, and brotherhood."
+            heading="A team built on discipline, intelligence, and growth."
           />
           <p className="text-lg text-slate-500 leading-8">
-            Man City FC is a U12 youth soccer team focused on helping players grow as athletes, teammates, and young men. We believe players develop best in an environment that is challenging, positive, organized, and rooted in trust.
+            Man City FC is a U12 club where players are developed as athletes and as people. We build students of the game—young men who compete with confidence, think on their feet, and carry what they learn here long after the final whistle.
           </p>
         </div>
       </section>
@@ -356,9 +358,9 @@ export default function Home() {
       {/* Philosophy */}
       <section id="philosophy" className="bg-white py-24">
         <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-16 items-center">
-          <SectionIntro eyebrow="Philosophy" heading="The process matters." />
+          <SectionIntro eyebrow="Philosophy" heading="The game is 80% mind." />
           <p className="text-lg text-slate-500 leading-8">
-            Winning matters, but development comes first. We focus on the daily habits that help players improve: effort, discipline, communication, decision-making, and trust. Soccer is the classroom, but the goal is bigger than the scoreboard.
+            We train the mental side of soccer just as hard as the physical side. Players who thrive here are students of the game—always learning, always improving, always looking to understand the deeper details. Success isn’t only about winning. It’s about dominating through intelligence, decision-making, and technical ability.
           </p>
         </div>
       </section>
@@ -369,7 +371,7 @@ export default function Home() {
           <p className="uppercase tracking-[0.25em] text-[#6CB4E4] font-semibold mb-4 text-sm">
             Coaching Staff
           </p>
-          <h2 className="text-4xl font-bold text-white">Led with purpose.</h2>
+          <h2 className="text-4xl font-bold text-white">Led with full effort.</h2>
         </div>
 
         <div className="pl-8 md:pl-[calc((100vw-72rem)/2+2rem)]">
@@ -561,6 +563,7 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-[#0B2F4A]/8">
           <p className="text-slate-400 text-xs">© {new Date().getFullYear()} Man City FC · Utah Youth Soccer</p>
+          <p className="text-slate-400 text-xs mt-2">Man City FC is an independent youth soccer club and is not affiliated with or endorsed by Manchester City Football Club.</p>
         </div>
       </footer>
     </main>
