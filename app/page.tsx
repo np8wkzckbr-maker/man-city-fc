@@ -303,7 +303,7 @@ export default function Home() {
               Play together.
             </h1>
             <p className="text-lg text-slate-300 leading-8 mb-10">
-              We believe soccer is 80% mind. Every session is designed to develop players who are disciplined, coachable, and hungry to improve—young men who love the game and carry what they learn here long after the final whistle.
+              WWhen players love the game, they keep learning, keep competing, and keep growing. Every session is designed to build that love—and the skill, character, and confidence to go with it.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#about" className="bg-[#6CB4E4] text-[#0B2F4A] px-6 py-3 rounded-lg font-semibold hover:bg-[#6CB4E4]/90 transition-colors">
