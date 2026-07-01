@@ -314,9 +314,9 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className="flex justify-center">
-            <Image src="/images/logo.PNG" alt="Man City FC Crest" width={340} height={340} className="opacity-95" />
-          </div>
+       <div className="flex justify-center">
+  <Image src="/images/gallery1.jpeg" alt="Man City FC Team" width={500} height={500} className="rounded-2xl object-cover w-full h-full" />
+</div>
         </div>
       </section>
 
